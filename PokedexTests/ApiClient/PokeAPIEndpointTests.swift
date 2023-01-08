@@ -2,13 +2,13 @@ import XCTest
 
 @testable import Pokedex
 
-final class PokeEndpointTests: XCTestCase {
+final class PokeAPIEndpointTests: XCTestCase {
     func testPaginatedPokemonEndpointShouldBeConstructedFromValidEndpoint() {
         // Given
         let endpointString = "pokemon"
 
         // When
-        let endpoint = PaginatedPokeEndpoint(rawValue: endpointString)
+        let endpoint = PaginatedPokeAPIEndpoint(rawValue: endpointString)
 
         // Then
         XCTAssertNotNil(endpoint)
@@ -19,7 +19,7 @@ final class PokeEndpointTests: XCTestCase {
         let endpointString = "totally_invalid_endpoint"
 
         // When
-        let endpoint = PaginatedPokeEndpoint(rawValue: endpointString)
+        let endpoint = PaginatedPokeAPIEndpoint(rawValue: endpointString)
 
         // Then
         XCTAssertNil(endpoint)
@@ -30,7 +30,7 @@ final class PokeEndpointTests: XCTestCase {
         let endpointString = "pokemon/1"
 
         // When
-        let endpoint = SinglePokeEndpoint(rawValue: endpointString)
+        let endpoint = SinglePokeAPIEndpoint(rawValue: endpointString)
 
         // Then
         XCTAssertNotNil(endpoint)
@@ -41,7 +41,7 @@ final class PokeEndpointTests: XCTestCase {
         let endpointString = "totally_invalid_identifier"
 
         // When
-        let endpoint = SinglePokeEndpoint(rawValue: endpointString)
+        let endpoint = SinglePokeAPIEndpoint(rawValue: endpointString)
 
         // Then
         XCTAssertNil(endpoint)
@@ -49,12 +49,12 @@ final class PokeEndpointTests: XCTestCase {
 
     func testPaginatedPokemonEndpointShouldHaveSingleEndpointCounterpart() {
         // Given
-        let allPaginatedEndpoints = PaginatedPokeEndpoint.allCases
+        let allPaginatedEndpoints = PaginatedPokeAPIEndpoint.allCases
         let stubID: Int = 1
 
         // When
         let singleEndpointCounterpart = allPaginatedEndpoints.map {
-            SinglePokeEndpoint(rawValue: "\($0.rawValue)/\(stubID)")
+            SinglePokeAPIEndpoint(rawValue: "\($0.rawValue)/\(stubID)")
         }
 
         // Then

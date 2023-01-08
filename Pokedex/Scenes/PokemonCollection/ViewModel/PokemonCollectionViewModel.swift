@@ -1,12 +1,14 @@
 import Foundation
 
-protocol PokedexViewModelProtocol: AnyObject, ObservableObject {
+@MainActor
+protocol PokemonCollectionViewModelProtocol: ObservableObject {
+    var pokemonViewModels: [any PokemonCardViewModelProtocol] { get }
+
     func fetchPokemons() async
     func fetchMorePokemons() async
 }
 
-@MainActor
-final class PokedexViewModel: PokedexViewModelProtocol {
+final class PokemonCollectionViewModel: PokemonCollectionViewModelProtocol {
     // MARK: Lifecycle
 
     init(pokeService: PokeService) {
@@ -15,10 +17,10 @@ final class PokedexViewModel: PokedexViewModelProtocol {
 
     // MARK: Internal
 
-    @Published private(set) var pokemons = [Pokemon]()
+    @Published private(set) var pokemonViewModels = [any PokemonCardViewModelProtocol]()
 
     func fetchPokemons() async {
-        switch await pokeService.execute(PokeRequest(endpoint: PaginatedPokeEndpoint.pokemon, queryItems: [])) {
+        switch await pokeService.execute(PokeAPIRequest(endpoint: PaginatedPokeAPIEndpoint.pokemon)) {
             case .success(let response):
                 print(response)
             case .failure(let error):

@@ -1,8 +1,8 @@
 import Foundation
 
 protocol PokeService {
-    func execute<R: PokeRequestProtocol>(_ request: R) async -> Result<PaginatedPokeAPIResponse, Error> where R.PokeEndpoint == PaginatedPokeEndpoint
-    func execute<R: PokeRequestProtocol, T: Codable>(_ request: R, expecting type: T.Type) async -> Result<[T], Error> where R.PokeEndpoint == SinglePokeEndpoint
+    func execute<R: PokeAPIRequestProtocol>(_ request: R) async -> Result<PaginatedPokeAPIResponse, Error> where R.PokeAPIEndpoint == PaginatedPokeAPIEndpoint
+    func execute<R: PokeAPIRequestProtocol, T: Codable>(_ request: R, expecting type: T.Type) async -> Result<[T], Error> where R.PokeAPIEndpoint == SinglePokeAPIEndpoint
 }
 
 final class PokeAPIService: PokeService, Sendable {
@@ -14,7 +14,7 @@ final class PokeAPIService: PokeService, Sendable {
         case failedToGetData
     }
 
-    func execute<R: PokeRequestProtocol>(_ request: R) async -> Result<PaginatedPokeAPIResponse, Error> where R.PokeEndpoint == PaginatedPokeEndpoint {
+    func execute<R: PokeAPIRequestProtocol>(_ request: R) async -> Result<PaginatedPokeAPIResponse, Error> where R.PokeAPIEndpoint == PaginatedPokeAPIEndpoint {
         guard let urlRequest = urlRequest(from: request) else { return .failure(PokeApiServiceError.failedToCreateRequest) }
 
         do {
@@ -27,7 +27,7 @@ final class PokeAPIService: PokeService, Sendable {
         }
     }
 
-    func execute<R: PokeRequestProtocol, T: Codable>(_ request: R, expecting type: T.Type) async -> Result<[T], Error> where R.PokeEndpoint == SinglePokeEndpoint {
+    func execute<R: PokeAPIRequestProtocol, T: Codable>(_ request: R, expecting type: T.Type) async -> Result<[T], Error> where R.PokeAPIEndpoint == SinglePokeAPIEndpoint {
         guard let urlRequest = urlRequest(from: request) else { return .failure(PokeApiServiceError.failedToCreateRequest) }
 
         do {
@@ -42,7 +42,7 @@ final class PokeAPIService: PokeService, Sendable {
 
     // MARK: Private
 
-    private func urlRequest(from request: any PokeRequestProtocol) -> URLRequest? {
+    private func urlRequest(from request: any PokeAPIRequestProtocol) -> URLRequest? {
         guard let requestUrl = request.url else { return nil }
 
         return URLRequest(url: requestUrl)

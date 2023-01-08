@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct PokedexView: View {
-    @ObservedObject private(set) var viewModel = PokedexViewModel(pokeService: PokeAPIService())
+struct PokemonCollectionView<ViewModel: PokemonCollectionViewModelProtocol>: View {
+    @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {
         VStack {
@@ -19,8 +19,10 @@ struct PokedexView: View {
     }
 }
 
-struct PokedexView_Previews: PreviewProvider {
+#if DEBUG
+struct PokemonCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        PokedexView()
+        PokemonCollectionView(viewModel: PokemonCollectionViewModel(pokeService: PokeAPIService()))
     }
 }
+#endif
