@@ -1,6 +1,6 @@
 import Foundation
 
-protocol PokeRequestProtocol {
+protocol PokeRequestProtocol: Sendable {
     associatedtype PokeEndpoint
 
     init(endpoint: PokeEndpoint, queryItems: [URLQueryItem])

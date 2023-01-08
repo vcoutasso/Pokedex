@@ -1,6 +1,6 @@
 import Foundation
 
-protocol PokeEndpointProtocol: RawRepresentable {}
+protocol PokeEndpointProtocol: RawRepresentable, Sendable {}
 
 /// Represents an endpoint that produces a paginated response for multiple data entries
 enum PaginatedPokeEndpoint: String, CaseIterable, PokeEndpointProtocol {
