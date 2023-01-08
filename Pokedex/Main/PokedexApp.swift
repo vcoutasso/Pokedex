@@ -4,7 +4,7 @@ import SwiftUI
 struct PokedexApp: App {
     var body: some Scene {
         WindowGroup {
-            PokemonCollectionView(viewModel: PokemonCollectionViewModel(pokeService: PokeAPIService()))
+            PokemonCollectionView(viewModel: PokemonCollectionViewModel(pokeService: PokeAPIService.shared))
         }
     }
 }

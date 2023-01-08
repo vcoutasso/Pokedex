@@ -22,7 +22,7 @@ struct PokemonCollectionView<ViewModel: PokemonCollectionViewModelProtocol>: Vie
 #if DEBUG
 struct PokemonCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCollectionView(viewModel: PokemonCollectionViewModel(pokeService: PokeAPIService()))
+        PokemonCollectionView(viewModel: PokemonCollectionViewModel())
     }
 }
 #endif
