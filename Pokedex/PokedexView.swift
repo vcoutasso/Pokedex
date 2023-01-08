@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct PokedexView: View {
+    @ObservedObject private(set) var viewModel = PokedexViewModel(pokeService: PokeAPIService())
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -9,6 +11,11 @@ struct PokedexView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            Task {
+                await viewModel.fetchPokemons()
+            }
+        }
     }
 }
 
