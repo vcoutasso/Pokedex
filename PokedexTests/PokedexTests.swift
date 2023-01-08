@@ -1,10 +1,3 @@
-//
-//  PokedexTests.swift
-//  PokedexTests
-//
-//  Created by Vinícius Couto on 07/01/23.
-//
-
 import XCTest
 @testable import Pokedex
 
