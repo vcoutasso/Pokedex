@@ -1,6 +1,8 @@
 import Foundation
 
-protocol PokeAPIEndpointProtocol: RawRepresentable, Sendable {}
+protocol PokeAPIEndpointProtocol: RawRepresentable, Sendable where RawValue == String {
+
+}
 
 /// Represents an endpoint that produces a paginated response for multiple data entries
 enum PaginatedPokeAPIEndpoint: String, CaseIterable, PokeAPIEndpointProtocol {
@@ -26,8 +28,6 @@ enum SinglePokeAPIEndpoint: PokeAPIEndpointProtocol {
                 self = .pokemon(id)
         }
     }
-
-    typealias RawValue = String
 
     /// Endpoint to get  a single pokemon info
     case pokemon(Int)

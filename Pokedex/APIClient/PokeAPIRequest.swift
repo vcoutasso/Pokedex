@@ -16,27 +16,31 @@ struct PokeAPIRequest<Endpoint: PokeAPIEndpointProtocol>: PokeAPIRequestProtocol
     // MARK: Lifecycle
 
     init?(urlString: String) {
+        let path = urlString.replacingOccurrences(of: baseUrl, with: "").trimmingCharacters(in: .punctuationCharacters)
+        
         guard urlString.starts(with: baseUrl),
-              let urlComponents = URLComponents(string: urlString),
-              let anyEndpoint: any PokeAPIEndpointProtocol = PaginatedPokeAPIEndpoint(rawValue: urlComponents.path) ?? SinglePokeAPIEndpoint(rawValue: urlComponents.path),
-            let endpoint = anyEndpoint as? Endpoint
+              let endpoint = Endpoint(rawValue: path)
         else { return nil }
 
+        let urlComponents = URLComponents(string: urlString)
+
         self.endpoint = endpoint
-        self.url = urlComponents.url
+        self.queryItems = urlComponents?.queryItems ?? []
     }
 
     init(endpoint: Endpoint, queryItems: [URLQueryItem] = []) {
         self.endpoint = endpoint
-        let path = "\(endpoint.rawValue)/"
-        self.url = URLComponents(string: baseUrl + path)?.url?.appending(queryItems: queryItems)
+        self.queryItems = queryItems
     }
 
     // MARK: Internal
 
     let endpoint: Endpoint
+    let queryItems: [URLQueryItem]
 
-    let url: URL?
+    var url: URL? {
+        URLComponents(string: baseUrl + endpoint.rawValue)?.url?.appending(queryItems: queryItems)
+    }
 
     let httpMethod = "GET"
 
