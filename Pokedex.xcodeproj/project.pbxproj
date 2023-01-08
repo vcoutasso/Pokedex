@@ -29,6 +29,7 @@
 		4C751DD5296A946C00861894 /* PokemonTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C751DD4296A946C00861894 /* PokemonTypesTests.swift */; };
 		4C751DD8296A94B700861894 /* PokeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C751DD7296A94B700861894 /* PokeRequestTests.swift */; };
 		4CBF076E296B2FF4001896E8 /* PaginatedPokeAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF076D296B2FF4001896E8 /* PaginatedPokeAPIResponse.swift */; };
+		4CBF0770296B476B001896E8 /* PokeEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF076F296B476B001896E8 /* PokeEndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		4C751DD4296A946C00861894 /* PokemonTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypesTests.swift; sourceTree = "<group>"; };
 		4C751DD7296A94B700861894 /* PokeRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRequestTests.swift; sourceTree = "<group>"; };
 		4CBF076D296B2FF4001896E8 /* PaginatedPokeAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedPokeAPIResponse.swift; sourceTree = "<group>"; };
+		4CBF076F296B476B001896E8 /* PokeEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeEndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				4C751DD7296A94B700861894 /* PokeRequestTests.swift */,
+				4CBF076F296B476B001896E8 /* PokeEndpointTests.swift */,
 			);
 			path = ApiClient;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C751DB9296A5BE900861894 /* PokemonTests.swift in Sources */,
+				4CBF0770296B476B001896E8 /* PokeEndpointTests.swift in Sources */,
 				4C751DD3296A943C00861894 /* PokemonStatsTests.swift in Sources */,
 				4C751DD8296A94B700861894 /* PokeRequestTests.swift in Sources */,
 				4C751DD5296A946C00861894 /* PokemonTypesTests.swift in Sources */,
