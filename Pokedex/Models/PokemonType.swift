@@ -4,6 +4,11 @@ struct PokemonType: Codable {
     let slot: Int
     let type: PokemonTypes
 
+    init(slot: Int, type: PokemonTypes) {
+        self.slot = slot
+        self.type = type
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let typeRawValue = try container.decode(NamedPokeAPIResource.self, forKey: .type).name

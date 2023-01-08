@@ -31,6 +31,7 @@
 		4CBF0770296B476B001896E8 /* PokeAPIEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF076F296B476B001896E8 /* PokeAPIEndpointTests.swift */; };
 		4CBF0779296B4B53001896E8 /* PokemonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF0778296B4B53001896E8 /* PokemonCardView.swift */; };
 		4CBF077B296B4B5C001896E8 /* PokemonCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF077A296B4B5C001896E8 /* PokemonCardViewModel.swift */; };
+		4CBF077D296B6002001896E8 /* PreviewPokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF077C296B6002001896E8 /* PreviewPokeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		4CBF076F296B476B001896E8 /* PokeAPIEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAPIEndpointTests.swift; sourceTree = "<group>"; };
 		4CBF0778296B4B53001896E8 /* PokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardView.swift; sourceTree = "<group>"; };
 		4CBF077A296B4B5C001896E8 /* PokemonCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardViewModel.swift; sourceTree = "<group>"; };
+		4CBF077C296B6002001896E8 /* PreviewPokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPokeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				4C751D83296A4C8600861894 /* Preview Assets.xcassets */,
+				4CBF077C296B6002001896E8 /* PreviewPokeService.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				4CBF076E296B2FF4001896E8 /* PaginatedPokeAPIResponse.swift in Sources */,
 				4C751DCA296A788100861894 /* PokeService.swift in Sources */,
 				4C751DC6296A727900861894 /* PokeAPIRequest.swift in Sources */,
+				4CBF077D296B6002001896E8 /* PreviewPokeService.swift in Sources */,
 				4CBF0779296B4B53001896E8 /* PokemonCardView.swift in Sources */,
 				4C751DA8296A4E4800861894 /* Pokemon.swift in Sources */,
 				4C751DCC296A7C2100861894 /* PokemonCollectionViewModel.swift in Sources */,

@@ -32,8 +32,8 @@ final class PokemonCollectionViewModel: PokemonCollectionViewModelProtocol {
                         print("Failed to create request for \(result)")
                         continue
                     }
-
-                    pokemonViewModels.append(PokemonCardViewModel(request: request))
+                    let viewModel = PokemonCardViewModel(request: request)
+                    pokemonViewModels.append(viewModel)
                 }
             case .failure(let error):
                 print(error)

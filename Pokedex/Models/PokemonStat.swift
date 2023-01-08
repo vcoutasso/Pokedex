@@ -4,6 +4,11 @@ struct PokemonStat: Codable {
     let stat: PokemonStats
     let value: Int
 
+    init(stat: PokemonStats, value: Int) {
+        self.stat = stat
+        self.value = value
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let statRawValue = try container.decode(NamedPokeAPIResource.self, forKey: .stat).name
