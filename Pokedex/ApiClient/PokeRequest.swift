@@ -1,11 +1,20 @@
 import Foundation
 
+protocol PokeRequestProtocol {
+    associatedtype PokeEndpoint
+
+    init(endpoint: PokeEndpoint, queryItems: [URLQueryItem])
+
+    var endpoint: PokeEndpoint { get }
+    var url: URL? { get }
+}
+
 /// Represents a single PokeAPI call
-struct PokeRequest {
+struct PokeRequest<Endpoint: PokeEndpointProtocol>: PokeRequestProtocol {
 
     // MARK: Lifecycle
 
-    init(endpoint: PokeEndpoint, queryItems: [URLQueryItem] = []) {
+    init(endpoint: Endpoint, queryItems: [URLQueryItem] = []) {
         self.endpoint = endpoint
         let path = "\(endpoint.rawValue)/"
         self.url = URLComponents(string: baseUrl + path)?.url?.appending(queryItems: queryItems)
@@ -13,7 +22,7 @@ struct PokeRequest {
 
     // MARK: Internal
 
-    let endpoint: PokeEndpoint
+    let endpoint: Endpoint
 
     let url: URL?
 

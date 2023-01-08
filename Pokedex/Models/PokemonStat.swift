@@ -6,7 +6,7 @@ struct PokemonStat: Codable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let statRawValue = try container.decode(NamedPokemonResource.self, forKey: .stat).name
+        let statRawValue = try container.decode(NamedPokeAPIResource.self, forKey: .stat).name
         guard let stat = PokemonStats(rawValue: statRawValue) else {
             throw PokemonStatError.failedToDecodePokemonStat
         }

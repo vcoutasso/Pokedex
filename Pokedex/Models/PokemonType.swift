@@ -6,7 +6,7 @@ struct PokemonType: Codable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let typeRawValue = try container.decode(NamedPokemonResource.self, forKey: .type).name
+        let typeRawValue = try container.decode(NamedPokeAPIResource.self, forKey: .type).name
         guard let type = PokemonTypes(rawValue: typeRawValue) else {
             throw PokemonTypeError.failedToDecodePokemonType
         }

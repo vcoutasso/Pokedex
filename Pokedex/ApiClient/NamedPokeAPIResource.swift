@@ -1,6 +1,6 @@
 import Foundation
 
-struct NamedPokemonResource: Codable {
+struct NamedPokeAPIResource: Codable {
     let name: String
     let url: String
 }

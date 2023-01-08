@@ -18,9 +18,9 @@ final class PokedexViewModel: PokedexViewModelProtocol {
     @Published private(set) var pokemons = [Pokemon]()
 
     func fetchPokemons() async {
-        switch await pokeService.execute(.init(endpoint: .pokemon), expecting: Pokemon.self) {
+        switch await pokeService.execute(PokeRequest(endpoint: PaginatedPokeEndpoint.pokemon, queryItems: [])) {
             case .success(let response):
-                self.pokemons = response.sorted(by: { $0.id < $1.id })
+                print(response)
             case .failure(let error):
                 print(error)
         }
